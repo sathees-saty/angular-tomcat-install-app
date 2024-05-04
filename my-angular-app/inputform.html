@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <!-- Default favicon image -->
+    <link id="favicon" rel="icon" href="icons8-favicon-94.png" type="image/png" sizes="16x16">
+    <title>Redirect URL in AngularJS</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.angularjs.org/1.4.1/angular.js"></script>
+    <script>
+        var app = angular.module('RedirectURLApp', []);
+        app.controller('RedirectURLCtrl', function ($scope, $location, $window) {
+            $scope.name = 'User';
+            $scope.RedirectToBlogspotURL = function () {
+                var host = $window.location.host;
+                var landingUrl = "https://hightechyuga.blogspot.com/";
+                alert(landingUrl);
+                // $window.location.href = landingUrl;
+                window.open(landingUrl, '_blank');
+            };
+
+            $scope.RedirectToGithubURL = function () {
+                var host = $window.location.host;
+                var landingUrl = "https://github.com/sathees-saty";
+                alert(landingUrl);
+                // $window.location.href = landingUrl;
+                window.open(landingUrl, '_blank');
+            };
+            $scope.RedirectToSubmitURL = function () {
+                var host = $window.location.host;
+                var orginUrl = window.location.origin;
+                var landingUrl = orginUrl + "/my-angular-app/submit-form.html";
+                alert(landingUrl);
+                window.open(landingUrl, '_blank');
+            };
+        });
+    </script>
+</head>
+
+<body ng-app="RedirectURLApp">
+    <div ng-controller="RedirectURLCtrl">
+        <h2>Redirect URL in AngularJS</h2>
+        <p>Hello {{name}},</p>
+        <h4>
+            Click to Redirect to blogspot <a href="#" ng-click="RedirectToBlogspotURL()">Click Me!</a>
+        </h4>
+    </div>
+    <div ng-controller="RedirectURLCtrl">
+        <h4>
+            Click to Redirect to Github <a href="#" ng-click="RedirectToGithubURL()">Click Me!</a>
+        </h4>
+    </div>
+    <div ng-controller="RedirectURLCtrl">
+        <h4>
+            Click to Redirect to submit page <a href="#" ng-click="RedirectToSubmitURL()">Click Me!</a>
+        </h4>
+    </div>
+</body>
+
+</html>

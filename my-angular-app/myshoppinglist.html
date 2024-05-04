@@ -1,0 +1,61 @@
+<!DOCTYPE html> 
+<html ng-app="myApp"> 
+
+<head> 
+	<title> 
+		Remove and Add Items to Array 
+	</title> 
+	<link rel="stylesheet"
+		type="text/css"
+		href="styles.css"> 
+	<style> 
+		h1.color-heading { 
+			color: green; 
+		} 
+
+		h3.approach-heading { 
+			color: black; 
+		} 
+	</style> 
+	<script src= 
+"https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"> 
+	</script> 
+	<script src="app.js"></script> 
+</head> 
+
+<body ng-controller="myCtrl"> 
+	<div class="container"> 
+		<h1 class="color-heading"> 
+			<center> 
+				Shopping List 
+			</center> 
+		</h1> 
+		<h3 class="approach-heading"> 
+		</h3> 
+		<p> 
+			Click the "Remove" button to remove 
+			an item from the Shopping List. 
+            <br></br>
+			Add new items below: 
+		</p> 
+		<ul> 
+			<li ng-repeat="item in items"> 
+				{{ item }} 
+				<button ng-click="removeItem($index)"> 
+					Remove 
+				</button> 
+			</li> 
+		</ul> 
+		<div class="input-container"> 
+			<input type="text"
+				ng-model="newItem"
+				placeholder="Add a new item to Shopping List"> 
+			<button class="add-button"
+					ng-click="addItem()"> 
+				Add 
+			</button> 
+		</div> 
+	</div> 
+</body> 
+
+</html>
